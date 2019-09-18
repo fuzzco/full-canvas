@@ -1,18 +1,20 @@
 {
     "name": "@fuzzco/full-canvas",
     "version": "1.0.0",
-    "description": "All-in-one image component for Vue.",
+    "description": "Auto-resizing canvas for Vue.",
     "main": "dist/full-canvas.common.js",
     "scripts": {
         "dev": "vue-cli-service serve demo/main",
         "prepublish": "npm run build",
         "buildDemo": "vue-cli-service build --dest docs demo/main",
         "buildLib": "vue-cli-service build --target lib --name full-canvas src/FullCanvas.vue",
-        "build": "npm run buildDemo && npm run buildLib",
-        "name": "sh ./set-name.sh && rm ./set-name.sh"
+        "build": "npm run buildDemo && npm run buildLib"
     },
-    "keywords": [],
-    "author": "",
+    "keywords": [
+        "canvas",
+        "vue"
+    ],
+    "author": "Fuzzco",
     "license": "MIT",
     "devDependencies": {
         "@babel/cli": "^7.4.4",
@@ -25,7 +27,7 @@
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
-        "imagesloaded": "^4.1.4",
+        "lodash": "^4.17.15",
         "vue": "^2.6.10"
     }
 }
