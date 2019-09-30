@@ -3,6 +3,7 @@
         class="full-canvas"
         :width="clientRect ? clientRect.width : 0"
         :height="clientRect ? clientRect.height : 0"
+        ref="canvas"
     />
 </template>
 
@@ -21,7 +22,7 @@ export default {
             clientRect: null
         }
     },
-    mounted() {
+    async mounted() {
         window.addEventListener(
             'scroll',
             _throttle(this.setRect, this.rectThrottle)
@@ -30,7 +31,12 @@ export default {
             'resize',
             _throttle(this.setRect, this.rectThrottle)
         )
-        this.$nextTick(this.setRect)
+        await this.$nextTick()
+
+        this.setRect()
+
+        await this.$nextTick()
+        this.$emit('canvas-ready', this.$refs.canvas)
     },
     methods: {
         setRect() {

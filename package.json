@@ -1,6 +1,6 @@
 {
     "name": "@fuzzco/full-canvas",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Auto-resizing canvas for Vue.",
     "main": "dist/full-canvas.common.js",
     "scripts": {
