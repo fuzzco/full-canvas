@@ -1,8 +1,8 @@
 <template>
     <canvas
         class="full-canvas"
-        :width="clientRect ? clientRect.width : 0"
-        :height="clientRect ? clientRect.height : 0"
+        :width="clientRect ? clientRect.width * dpi : 0"
+        :height="clientRect ? clientRect.height * dpi : 0"
         ref="canvas"
     />
 </template>
@@ -19,10 +19,12 @@ export default {
     },
     data() {
         return {
-            clientRect: null
+            clientRect: null,
+            dpi: 1
         }
     },
     async mounted() {
+        this.dpi = window.devicePixelRatio
         window.addEventListener(
             'scroll',
             _throttle(this.setRect, this.rectThrottle)
